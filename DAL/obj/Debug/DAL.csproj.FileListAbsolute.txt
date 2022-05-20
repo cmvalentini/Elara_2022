@@ -1,0 +1,9 @@
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\DAL.dll
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\DAL.pdb
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\BE.dll
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\BE.pdb
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\obj\Debug\DAL.dll
+c:\users\charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\obj\Debug\DAL.pdb
+C:\Users\Charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\ServiceLayer.dll
+C:\Users\Charly\documents\visual studio 2015\Projects\Diploma_2022\DAL\bin\Debug\ServiceLayer.pdb
