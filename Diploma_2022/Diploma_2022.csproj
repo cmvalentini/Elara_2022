@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8FB0764-9B81-4B16-8B4F-13B2F3523D16}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diploma_2022</RootNamespace>
+    <AssemblyName>Diploma_2022</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUsuario.Designer.cs">
+      <DependentUpon>AUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarUsuario.Designer.cs">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogOut.Designer.cs">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModificarUsuarios.Designer.cs">
+      <DependentUpon>ModificarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MUsuario.Designer.cs">
+      <DependentUpon>MUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\AFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\AFamilia.Designer.cs">
+      <DependentUpon>AFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\AsignarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\AsignarFamilia.Designer.cs">
+      <DependentUpon>AsignarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\AsignarOperacionesAPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\AsignarOperacionesAPerfil.Designer.cs">
+      <DependentUpon>AsignarOperacionesAPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\EliminarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\EliminarFamilia.Designer.cs">
+      <DependentUpon>EliminarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\MFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\MFamilia.Designer.cs">
+      <DependentUpon>MFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Permisos\ModificarFamilia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Permisos\ModificarFamilia.Designer.cs">
+      <DependentUpon>ModificarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AUsuario.resx">
+      <DependentUpon>AUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogOut.resx">
+      <DependentUpon>LogOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModificarUsuarios.resx">
+      <DependentUpon>ModificarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MUsuario.resx">
+      <DependentUpon>MUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\AFamilia.resx">
+      <DependentUpon>AFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\AsignarFamilia.resx">
+      <DependentUpon>AsignarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\AsignarOperacionesAPerfil.resx">
+      <DependentUpon>AsignarOperacionesAPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\EliminarFamilia.resx">
+      <DependentUpon>EliminarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\MFamilia.resx">
+      <DependentUpon>MFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Permisos\ModificarFamilia.resx">
+      <DependentUpon>ModificarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{4d8303f9-8517-4db6-8f6e-e1b9037d11e3}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{e60f87fb-5aa4-425a-86bb-fed622c8b5f8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{b7605e24-f58a-4adc-8c81-685de1d871c4}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
