@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Diploma_2022
+namespace Diploma_2022.Idioma
 {
-    public partial class Form1 : Form
+    public partial class ConfigurarIdioma : Form
     {
-        public Form1()
+        public ConfigurarIdioma()
         {
             InitializeComponent();
+        }
+
+        private void ConfigurarIdioma_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
