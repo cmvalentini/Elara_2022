@@ -43,6 +43,7 @@
     <Compile Include="BackRestore\BackRestoreBLL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Idioma\IdiomaBLL.cs" />
+    <Compile Include="Medio\MedioBLL.cs" />
     <Compile Include="Permisos\DirectorioperfilBLL.cs" />
     <Compile Include="Permisos\ManejadorPerfilUsuarios.cs" />
     <Compile Include="Permisos\OperacionBLL.cs" />

@@ -190,14 +190,14 @@ namespace DAL.Seguridad
             string sql = "select Usuarioid,Usuario,Clave from usuario";
             dtusuarios = con.Ejecutarreader(sql);
 
-            string sqlusuop = " select UsuarioID,OperacionID,Habilitado from usuariooperacion";
-            dtusuariooperacion = con.Ejecutarreader(sqlusuop);
+            //string sqlusuop = " select UsuarioID,OperacionID,Habilitado from usuariooperacion";
+            //dtusuariooperacion = con.Ejecutarreader(sqlusuop);
 
-            string sqlbitacora = " select BitacoraID,UsuarioID,FechayHora from bitacora";
-            dtbitacora = con.Ejecutarreader(sqlbitacora);
+            //string sqlbitacora = " select BitacoraID,UsuarioID,FechayHora from bitacora";
+            //dtbitacora = con.Ejecutarreader(sqlbitacora);
 
-            string sqlperfil = "  select PerfilUsuarioID,NombrePerfil,DescPerfil from PerfilUsuario";
-            dtperfil = con.Ejecutarreader(sqlperfil);
+            //string sqlperfil = "  select PerfilUsuarioID,NombrePerfil,DescPerfil from PerfilUsuario";
+            //dtperfil = con.Ejecutarreader(sqlperfil);
 
 
             string sqloperacion = "  select OperacionID,Descripcion,PatenteEscencial from Operacion";
@@ -205,21 +205,7 @@ namespace DAL.Seguridad
 
             //ACTUALIZO DVH
 
-            foreach (DataRow item in dtoperacion.Rows)
-            {
-                string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                int flag = recalculartabladvh(concat);
-                totdvhOPERACION += flag;
-                string crypflag = cryp.Encriptar(flag.ToString());
-
-
-                string sqlop1 = "update operacion set dvh = '" + crypflag + "' where OperacionID = " + item[0].ToString() + " ;";
-
-                con.Ejecutar(sqlop1);
-            }
-
-            foreach (DataRow item in dtusuarios.Rows)
+           foreach (DataRow item in dtusuarios.Rows)
             {
                 string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
 
@@ -231,100 +217,117 @@ namespace DAL.Seguridad
 
                 con.Ejecutar(sql2);
             }
-            int a = 0;
-            foreach (DataRow item in dtusuariooperacion.Rows)
-            {
-                string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
 
-                int flag = recalculartabladvh(concat);
-                totdvhusuariooperacion += flag;
-                string crypflag = cryp.Encriptar(flag.ToString());
+            #region Tablas que no se usan mas
+            /* int a = 0;
+              foreach (DataRow item in dtusuariooperacion.Rows)
+              {
+                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
 
-                int tot = 0;
-                Console.WriteLine(a);
-                string sqluo = "update usuariooperacion set dvh = '" + crypflag + "' where usuarioid = " + item[0].ToString() + " " +
-                    " and OperacionID = " + item[1].ToString() + ";";
+                  int flag = recalculartabladvh(concat);
+                  totdvhusuariooperacion += flag;
+                  string crypflag = cryp.Encriptar(flag.ToString());
 
-                con.Ejecutar(sqluo);
-                tot = a++;
-            }
+                  int tot = 0;
+                  Console.WriteLine(a);
+                  string sqluo = "update usuariooperacion set dvh = '" + crypflag + "' where usuarioid = " + item[0].ToString() + " " +
+                      " and OperacionID = " + item[1].ToString() + ";";
 
-            foreach (DataRow item in dtbitacora.Rows)
-            {
-                string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
+                  con.Ejecutar(sqluo);
+                  tot = a++;
+              }
 
-                int flag = recalculartabladvh(concat);
-                totdvhBitacora += flag;
-                string crypflag = cryp.Encriptar(flag.ToString());
+              foreach (DataRow item in dtbitacora.Rows)
+              {
+                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
 
-                string sqlbit = "update bitacora set dvh = '" + crypflag + "' where BitacoraID = " + item[0].ToString() + " " +
-                    " and UsuarioID = " + item[1].ToString() + ";";
+                  int flag = recalculartabladvh(concat);
+                  totdvhBitacora += flag;
+                  string crypflag = cryp.Encriptar(flag.ToString());
 
-                con.Ejecutar(sqlbit);
-            }
+                  string sqlbit = "update bitacora set dvh = '" + crypflag + "' where BitacoraID = " + item[0].ToString() + " " +
+                      " and UsuarioID = " + item[1].ToString() + ";";
 
-            foreach (DataRow item in dtperfil.Rows)
-            {
-                string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
+                  con.Ejecutar(sqlbit);
+              }
 
-                int flag = recalculartabladvh(concat);
-                totdvhPerfilUsuario += flag;
-                string crypflag = cryp.Encriptar(flag.ToString());
+              foreach (DataRow item in dtperfil.Rows)
+              {
+                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
 
-                string sqlperfil1 = "update PerfilUsuario set dvh = '" + crypflag + "' where PerfilUsuarioID = " + item[0].ToString() + " " +
-                    " and NombrePerfil like '" + item[1].ToString() + "';";
+                  int flag = recalculartabladvh(concat);
+                  totdvhPerfilUsuario += flag;
+                  string crypflag = cryp.Encriptar(flag.ToString());
 
-                con.Ejecutar(sqlperfil1);
-            }
+                  string sqlperfil1 = "update PerfilUsuario set dvh = '" + crypflag + "' where PerfilUsuarioID = " + item[0].ToString() + " " +
+                      " and NombrePerfil like '" + item[1].ToString() + "';";
+
+                  con.Ejecutar(sqlperfil1);
+              }
+
+              foreach (DataRow item in dtoperacion.Rows)
+              {
+                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
+
+                  int flag = recalculartabladvh(concat);
+                  totdvhOPERACION += flag;
+                  string crypflag = cryp.Encriptar(flag.ToString());
+
+
+                  string sqlop1 = "update operacion set dvh = '" + crypflag + "' where OperacionID = " + item[0].ToString() + " ;";
+
+                  con.Ejecutar(sqlop1);
+              }*/
+            /*string crypusuop = cryp.Encriptar(totdvhusuariooperacion.ToString());
+          string crypbita = cryp.Encriptar(totdvhBitacora.ToString());
+          string crypperfilusu = cryp.Encriptar(totdvhPerfilUsuario.ToString());
+          string crypopo = cryp.Encriptar(totdvhOPERACION.ToString());*/
+            /*   String sqlusuarioop = " update dvv set dvv = '" + crypusuop + "' " +
+             " where tabla like 'usuariooperacion'";
+              dtusuarios.Rows.Clear();
+              dtusuarios = con.Ejecutarreader(sqlusuarioop);
+
+              String sqlbita = " update dvv set dvv = '" + crypbita + "' " +
+            " where tabla like 'bitacora'";
+              dtusuarios.Rows.Clear();
+              dtusuarios = con.Ejecutarreader(sqlbita);
+
+              String sqlperfil2 = " update dvv set dvv = '" + crypperfilusu + "' " +
+              " where tabla like 'PerfilUsuario'";
+              dtusuarios.Rows.Clear();
+              dtusuarios = con.Ejecutarreader(sqlperfil2);
+
+              String sqloperaciones = " update dvv set dvv = '" + crypopo + "' " +
+          " where tabla like 'Operacion'";
+              dtusuarios.Rows.Clear();
+              dtusuarios = con.Ejecutarreader(sqloperaciones);
+
+      */
+         /*   totdvhusuariooperacion = 0;
+            totdvhBitacora = 0;
+            totdvhPerfilUsuario = 0;
+            totdvhOPERACION = 0;
+            dtusuariooperacion.Clear();
+            dtbitacora.Clear();
+            dtperfil.Clear();
+            dtoperacion.Clear();*/
+            #endregion
 
 
             // actualizo DVV
             string crypusu = cryp.Encriptar(totdvhusuario.ToString());
-            string crypusuop = cryp.Encriptar(totdvhusuariooperacion.ToString());
-            string crypbita = cryp.Encriptar(totdvhBitacora.ToString());
-            string crypperfilusu = cryp.Encriptar(totdvhPerfilUsuario.ToString());
-            string crypopo = cryp.Encriptar(totdvhOPERACION.ToString());
+            
 
             String sql3 = " update dvv set dvv = '" + crypusu + "' " +
                 " where tabla like 'Usuario'";
             dtusuarios.Rows.Clear();
             dtusuarios = con.Ejecutarreader(sql3);
 
-            String sqlusuarioop = " update dvv set dvv = '" + crypusuop + "' " +
-           " where tabla like 'usuariooperacion'";
-            dtusuarios.Rows.Clear();
-            dtusuarios = con.Ejecutarreader(sqlusuarioop);
-
-            String sqlbita = " update dvv set dvv = '" + crypbita + "' " +
-          " where tabla like 'bitacora'";
-            dtusuarios.Rows.Clear();
-            dtusuarios = con.Ejecutarreader(sqlbita);
-
-            String sqlperfil2 = " update dvv set dvv = '" + crypperfilusu + "' " +
-            " where tabla like 'PerfilUsuario'";
-            dtusuarios.Rows.Clear();
-            dtusuarios = con.Ejecutarreader(sqlperfil2);
-
-            String sqloperaciones = " update dvv set dvv = '" + crypopo + "' " +
-        " where tabla like 'Operacion'";
-            dtusuarios.Rows.Clear();
-            dtusuarios = con.Ejecutarreader(sqloperaciones);
-
-
-
+         
 
             totdvhusuario = 0;
-            totdvhusuariooperacion = 0;
-            totdvhBitacora = 0;
-            totdvhPerfilUsuario = 0;
-            totdvhOPERACION = 0;
             dtusuarios.Clear();
-            dtusuariooperacion.Clear();
-            dtbitacora.Clear();
-            dtperfil.Clear();
-            dtoperacion.Clear();
-
-            con.Desconectar();
+           con.Desconectar();
 
 
         }

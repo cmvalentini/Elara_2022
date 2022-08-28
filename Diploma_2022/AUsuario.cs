@@ -51,8 +51,7 @@ namespace Diploma_2022
                 cryp.CrearPassword(crip);
                 clavesinencriptar = crip.Result;
 
-                crip.Texto = clavesinencriptar;
-                crip = cryp.Encriptar(clavesinencriptar);
+                crip.TextoEncriptado = cryp.Encriptar(clavesinencriptar);
                 claveencriptada = crip.Result;
 
                 BE.Usuario usuBE = new BE.Usuario(txtuser.Text, txtLastname.Text, txtName.Text, txtMail.Text, int.Parse(txtDocument.Text), _habilitado, claveencriptada.ToString(), clavesinencriptar);

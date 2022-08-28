@@ -13,7 +13,7 @@ namespace BLL.Seguridad
         BE.Seguridad.Encriptacion cryp = new BE.Seguridad.Encriptacion();
         public readonly string key = "MasterKey";
 
-        public BE.Seguridad.Encriptacion Encriptar(string Texto)
+        public string Encriptar(string Texto)
         {
 
             byte[] keyArray;
@@ -40,14 +40,14 @@ namespace BLL.Seguridad
             byte[] ArrayResultado = cTransform.TransformFinalBlock(Arreglo_a_Cifrar, 0, Arreglo_a_Cifrar.Length);
             tdes.Clear();
 
-            cryp.Result = Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
+            string result = Convert.ToBase64String(ArrayResultado, 0, ArrayResultado.Length);
 
-            return cryp;
+            return result;
 
         }
 
 
-        public BE.Seguridad.Encriptacion Desencriptar(string TextoEncriptado) //string encriptado
+        public string Desencriptar(string TextoEncriptado) //string encriptado
         {
             byte[] keyArray;
             //convierte el texto en una secuencia de bytes
@@ -71,9 +71,9 @@ namespace BLL.Seguridad
             byte[] resultArray = cTransform.TransformFinalBlock(Array_a_Descifrar, 0, Array_a_Descifrar.Length);
             tdes.Clear();
 
-            cryp.Result = UTF8Encoding.UTF8.GetString(resultArray);
+            string Result = UTF8Encoding.UTF8.GetString(resultArray);
 
-            return cryp;
+            return Result;
         }
 
         public BE.Seguridad.Encriptacion CrearPassword() //int longitud

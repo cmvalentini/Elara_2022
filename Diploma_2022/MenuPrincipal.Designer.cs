@@ -32,6 +32,8 @@
             this.gestionComercialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMMediosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMMediosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaMedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarMedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMUbicacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMUbicacionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.negocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +68,7 @@
             this.logsSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarBitácoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarMedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,9 +106,27 @@
             // 
             // aBMMediosToolStripMenuItem1
             // 
+            this.aBMMediosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altaMedioToolStripMenuItem,
+            this.modificarMedioToolStripMenuItem,
+            this.eliminarMedioToolStripMenuItem});
             this.aBMMediosToolStripMenuItem1.Name = "aBMMediosToolStripMenuItem1";
-            this.aBMMediosToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
+            this.aBMMediosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.aBMMediosToolStripMenuItem1.Text = "ABM Medios";
+            // 
+            // altaMedioToolStripMenuItem
+            // 
+            this.altaMedioToolStripMenuItem.Name = "altaMedioToolStripMenuItem";
+            this.altaMedioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.altaMedioToolStripMenuItem.Text = "Alta Medio";
+            this.altaMedioToolStripMenuItem.Click += new System.EventHandler(this.altaMedioToolStripMenuItem_Click);
+            // 
+            // modificarMedioToolStripMenuItem
+            // 
+            this.modificarMedioToolStripMenuItem.Name = "modificarMedioToolStripMenuItem";
+            this.modificarMedioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.modificarMedioToolStripMenuItem.Text = "Modificar Medio";
+            this.modificarMedioToolStripMenuItem.Click += new System.EventHandler(this.modificarMedioToolStripMenuItem_Click);
             // 
             // aBMUbicacionesToolStripMenuItem
             // 
@@ -311,7 +332,7 @@
             // calcularDVToolStripMenuItem
             // 
             this.calcularDVToolStripMenuItem.Name = "calcularDVToolStripMenuItem";
-            this.calcularDVToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.calcularDVToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.calcularDVToolStripMenuItem.Text = "Calcular DV";
             // 
             // gestiónDeBackUpToolStripMenuItem
@@ -369,6 +390,7 @@
             this.consultarBitácoraToolStripMenuItem.Name = "consultarBitácoraToolStripMenuItem";
             this.consultarBitácoraToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.consultarBitácoraToolStripMenuItem.Text = "Consultar Bitácora";
+            this.consultarBitácoraToolStripMenuItem.Click += new System.EventHandler(this.consultarBitácoraToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -376,6 +398,13 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // eliminarMedioToolStripMenuItem
+            // 
+            this.eliminarMedioToolStripMenuItem.Name = "eliminarMedioToolStripMenuItem";
+            this.eliminarMedioToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.eliminarMedioToolStripMenuItem.Text = "Eliminar Medio";
+            this.eliminarMedioToolStripMenuItem.Click += new System.EventHandler(this.eliminarMedioToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 
@@ -435,5 +464,8 @@
         private System.Windows.Forms.ToolStripMenuItem asignarOperacionesAFamiliaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarFamiliaOperacionesAUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarFamiliaAUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaMedioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarMedioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarMedioToolStripMenuItem;
     }
 }

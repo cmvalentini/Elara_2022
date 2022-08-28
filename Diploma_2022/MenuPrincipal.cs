@@ -270,5 +270,29 @@ namespace Diploma_2022
             BackUp_Restore.Hacer_Restore HR = new BackUp_Restore.Hacer_Restore();
             HR.Show();
         }
+
+        private void consultarBitácoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Bitacora.Consultar_Bitacora cb = new Bitacora.Consultar_Bitacora();
+            cb.Show();
+        }
+
+        private void altaMedioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Medio.AltaMedio am = new Medio.AltaMedio();
+            am.Show();
+        }
+
+        private void modificarMedioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Medio.SModificarMedioscs md = new Medio.SModificarMedioscs();
+            md.Show();
+        }
+
+        private void eliminarMedioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Medio.SEliminarMedio em = new Medio.SEliminarMedio();
+            em.Show();
+        }
     }
 }

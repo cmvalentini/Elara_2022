@@ -29,15 +29,13 @@ namespace Diploma_2022
             {
                 MessageBox.Show("Por favor, complete los campos", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            var1 = cryp.Encriptar(txtclave.Text).Result;
-
+             
             try
             {
 
                 BLL.UsuarioBLL USU1 = new BLL.UsuarioBLL();
                 UsuBE._Usuario = txtUsuario.Text;
-                UsuBE.Clave = var1;
+                UsuBE.Clave = cryp.Encriptar(txtclave.Text);
 
                 USU1.TraerDatosUsuario(UsuBE); //trae usuario y clave
 
@@ -64,7 +62,7 @@ namespace Diploma_2022
                             logBE.Descripcion = cryp.Encriptar("Login Usuario no encontrado" + txtUsuario.Text + " ").ToString();
                             logBE.Criticidad = 4;
                             logBE.Usuarioid = 0;
-                            string rta = logbll.IngresarDatoBitacora(logBE.NombreOperacion, logBE.Descripcion, logBE.Criticidad, logBE.Usuarioid).ToString();
+                            string rta = logbll.IngresarDatoBitacora(logBE.NombreOperacion.ToString(), logBE.Descripcion, logBE.Criticidad, logBE.Usuarioid).ToString();
 
                         }
                         else
@@ -118,13 +116,15 @@ namespace Diploma_2022
                     else
                     {
 
-                        logBE.NombreOperacion = cryp.Encriptar("Login").ToString();
+                        logBE.NombreOperacion = cryp.Encriptar("Login");
                         logBE.Descripcion = cryp.Encriptar("Login Exitoso: " + txtUsuario.Text + " ").ToString();
                         logBE.Criticidad = 5;
                         logBE.Usuarioid = sesion.UsuarioID;
 
+                        MessageBox.Show(logBE.NombreOperacion);
+
                         //USUARIO Y CLAVE CORRECTOS
-                        string rta = logbll.IngresarDatoBitacora(logBE.NombreOperacion, logBE.Descripcion, logBE.Criticidad, logBE.Usuarioid).ToString();
+                        string rta = logbll.IngresarDatoBitacora(logBE.NombreOperacion.ToString(), logBE.Descripcion, logBE.Criticidad, logBE.Usuarioid).ToString();
 
                         MenuPrincipal mp = new MenuPrincipal();
 
@@ -183,11 +183,11 @@ namespace Diploma_2022
 
 
 
-                entcrip = cryp.Encriptar(txtClaveAtn.Text);
+                string result = cryp.Encriptar(txtClaveAtn.Text);
                 string var2 = "";
                 string var3 = "";
 
-                var2 = entcrip.Result;
+                var2 = result;
 
                 try
                 {
@@ -199,9 +199,10 @@ namespace Diploma_2022
                     {
                         try
                         {
-                            entcrip = cryp.Encriptar(txtClaveNew.Text);
-                            var3 = entcrip.Result;
-                            usuBE.Clave = var3;
+
+
+                            result = cryp.Encriptar(txtClaveNew.Text);
+                            usuBE.Clave = result;
                             UsuBE = USU.CambiarClave(UsuBE,var3);
                             MessageBox.Show("Se cambió la Clave exitosamente  " + UsuBE.Result);
 

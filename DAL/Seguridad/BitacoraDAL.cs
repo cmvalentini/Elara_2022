@@ -15,6 +15,7 @@ namespace DAL.Seguridad
 
         public BE.Seguridad.BitacoraBE IngresarDatoBitacora(string nombreOperacion, string descripcion, int criticidad, int usuarioid)
         {
+
             string sql = "insert into Bitacora(NombreOperacion,Descripcion,UsuarioID,Criticidad,FechayHora) values ('"
                         + nombreOperacion + "','" + descripcion + "'," + usuarioid + ","
                         + criticidad + ",getdate())";
@@ -72,12 +73,13 @@ namespace DAL.Seguridad
 
                 foreach (DataRow item in dt.Rows)
                 {
-                    logBE.NombreOperacion = item[0].ToString();
-                    logBE.Descripcion = item[1].ToString();
-                    logBE.Usuarioid = Convert.ToInt16(item[2].ToString());
-                    logBE.Criticidad = Convert.ToInt16(item[3].ToString());
-                    logBE.FechayHora = Convert.ToDateTime(item[4].ToString());
-
+                    BE.Seguridad.BitacoraBE BitacoraBE = new BE.Seguridad.BitacoraBE();
+                    BitacoraBE.NombreOperacion = item[0].ToString();
+                    BitacoraBE.Descripcion = item[1].ToString();
+                    BitacoraBE.Usuarioid = Convert.ToInt16(item[2].ToString());
+                    BitacoraBE.Criticidad = Convert.ToInt16(item[3].ToString());
+                    BitacoraBE.FechayHora = Convert.ToDateTime(item[4].ToString());
+                    listabitacora.Add(BitacoraBE);
                 }
                 Console.WriteLine("entró reader DAL.bitacora.ConsultarBitacora" + Convert.ToString(dt.Rows[0][0].ToString()));
 

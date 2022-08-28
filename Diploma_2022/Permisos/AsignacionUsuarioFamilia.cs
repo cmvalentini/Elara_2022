@@ -36,7 +36,9 @@ namespace Diploma_2022.Permisos
 
                 foreach (BE.Usuario item in listausuarios)
                 {
-                    cmbUsuario.Items.Add(item._Usuario);
+                    cmbUsuario.Items.Add(item._Usuario.ToString());
+
+                     
                 }
             }
             catch (Exception ex)

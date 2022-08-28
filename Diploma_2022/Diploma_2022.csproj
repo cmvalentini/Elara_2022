@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +67,12 @@
     <Compile Include="BackUp Restore\Hacer_Restore.Designer.cs">
       <DependentUpon>Hacer_Restore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bitacora\Consultar_Bitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora\Consultar_Bitacora.Designer.cs">
+      <DependentUpon>Consultar_Bitacora.cs</DependentUpon>
+    </Compile>
     <Compile Include="EliminarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +96,30 @@
     </Compile>
     <Compile Include="LogOut.Designer.cs">
       <DependentUpon>LogOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medio\AltaMedio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medio\AltaMedio.Designer.cs">
+      <DependentUpon>AltaMedio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medio\ModificarMedio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medio\ModificarMedio.Designer.cs">
+      <DependentUpon>ModificarMedio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medio\SEliminarMedio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medio\SEliminarMedio.Designer.cs">
+      <DependentUpon>SEliminarMedio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Medio\SModificarMedioscs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Medio\SModificarMedioscs.Designer.cs">
+      <DependentUpon>SModificarMedioscs.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -177,6 +210,9 @@
     <EmbeddedResource Include="BackUp Restore\Hacer_Restore.resx">
       <DependentUpon>Hacer_Restore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora\Consultar_Bitacora.resx">
+      <DependentUpon>Consultar_Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EliminarUsuario.resx">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +224,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogOut.resx">
       <DependentUpon>LogOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medio\AltaMedio.resx">
+      <DependentUpon>AltaMedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medio\ModificarMedio.resx">
+      <DependentUpon>ModificarMedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medio\SEliminarMedio.resx">
+      <DependentUpon>SEliminarMedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Medio\SModificarMedioscs.resx">
+      <DependentUpon>SModificarMedioscs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>

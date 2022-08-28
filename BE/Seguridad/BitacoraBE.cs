@@ -16,5 +16,6 @@ namespace BE.Seguridad
         public int Usuarioid { get; set; }
         public string result { get; set; }
 
+        public BitacoraBE() { }
     }
 }
