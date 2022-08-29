@@ -13,7 +13,7 @@ namespace Diploma_2022
     public partial class Login : Form
     {
         BLL.Seguridad.EncriptacionBLL cryp = new BLL.Seguridad.EncriptacionBLL();
-        string var1 = "";
+        
         BE.Usuario UsuBE = new BE.Usuario();
         BE.Seguridad.BitacoraBE logBE = new BE.Seguridad.BitacoraBE();
         BLL.Seguridad.BitacoraBLL logbll = new BLL.Seguridad.BitacoraBLL();

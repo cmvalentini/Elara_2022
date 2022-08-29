@@ -201,6 +201,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ubicacion\Alta_Ubicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicacion\Alta_Ubicacion.Designer.cs">
+      <DependentUpon>Alta_Ubicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ubicacion\ModificarUbicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicacion\ModificarUbicacion.Designer.cs">
+      <DependentUpon>ModificarUbicacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ubicacion\SModificarUbicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicacion\SModificarUbicacion.Designer.cs">
+      <DependentUpon>SModificarUbicacion.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AUsuario.resx">
       <DependentUpon>AUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +303,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ubicacion\Alta_Ubicacion.resx">
+      <DependentUpon>Alta_Ubicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ubicacion\ModificarUbicacion.resx">
+      <DependentUpon>ModificarUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ubicacion\SModificarUbicacion.resx">
+      <DependentUpon>SModificarUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

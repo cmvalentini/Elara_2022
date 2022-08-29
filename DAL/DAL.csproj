@@ -45,6 +45,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="EmailSevice\EmailServiceDAL.cs" />
     <Compile Include="Medio\MedioDAL.cs" />
+    <Compile Include="Medio\UbicacionDAL.cs" />
     <Compile Include="Permisos\ManejadorPerfilUsuarioDAL.cs" />
     <Compile Include="Permisos\OperacionDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

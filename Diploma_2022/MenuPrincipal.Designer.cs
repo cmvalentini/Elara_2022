@@ -69,6 +69,8 @@
             this.consultarBitácoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarMedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaUbicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarUbicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +140,9 @@
             // 
             // aBMUbicacionesToolStripMenuItem1
             // 
+            this.aBMUbicacionesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.altaUbicacionToolStripMenuItem,
+            this.modificarUbicacionToolStripMenuItem});
             this.aBMUbicacionesToolStripMenuItem1.Name = "aBMUbicacionesToolStripMenuItem1";
             this.aBMUbicacionesToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.aBMUbicacionesToolStripMenuItem1.Text = "ABM Ubicaciones";
@@ -406,6 +411,20 @@
             this.eliminarMedioToolStripMenuItem.Text = "Eliminar Medio";
             this.eliminarMedioToolStripMenuItem.Click += new System.EventHandler(this.eliminarMedioToolStripMenuItem_Click);
             // 
+            // altaUbicacionToolStripMenuItem
+            // 
+            this.altaUbicacionToolStripMenuItem.Name = "altaUbicacionToolStripMenuItem";
+            this.altaUbicacionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.altaUbicacionToolStripMenuItem.Text = "Alta Ubicacion";
+            this.altaUbicacionToolStripMenuItem.Click += new System.EventHandler(this.altaUbicacionToolStripMenuItem_Click);
+            // 
+            // modificarUbicacionToolStripMenuItem
+            // 
+            this.modificarUbicacionToolStripMenuItem.Name = "modificarUbicacionToolStripMenuItem";
+            this.modificarUbicacionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.modificarUbicacionToolStripMenuItem.Text = "Modificar Ubicacion";
+            this.modificarUbicacionToolStripMenuItem.Click += new System.EventHandler(this.modificarUbicacionToolStripMenuItem_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,5 +486,7 @@
         private System.Windows.Forms.ToolStripMenuItem altaMedioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarMedioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarMedioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaUbicacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarUbicacionToolStripMenuItem;
     }
 }

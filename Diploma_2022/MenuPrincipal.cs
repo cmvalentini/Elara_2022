@@ -294,5 +294,17 @@ namespace Diploma_2022
             Medio.SEliminarMedio em = new Medio.SEliminarMedio();
             em.Show();
         }
+
+        private void modificarUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ubicacion.SModificarUbicacion smu = new Ubicacion.SModificarUbicacion();
+            smu.Show();
+        }
+
+        private void altaUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ubicacion.Alta_Ubicacion au = new Ubicacion.Alta_Ubicacion();
+            au.Show();
+        }
     }
 }

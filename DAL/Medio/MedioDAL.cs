@@ -10,7 +10,7 @@ namespace DAL.Medio
 {
     public class MedioDAL
     {
-        string aux = "";
+        
         Conexion con = new Conexion();
         DataTable dt = new DataTable();
         public void DarAltaMedio(BE.Medio.Medio medio)
