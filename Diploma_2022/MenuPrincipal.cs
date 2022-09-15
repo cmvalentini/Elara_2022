@@ -99,8 +99,8 @@ namespace Diploma_2022
                         consultarBitácoraToolStripMenuItem.Visible = true;
                         break;
                     case "digitosverificadores":
-                        calcularDVToolStripMenuItem.Enabled = true;
-                        calcularDVToolStripMenuItem.Visible = true;
+                        digitosVerificadoresToolStripMenuItem.Enabled = true;
+                        digitosVerificadoresToolStripMenuItem.Visible = true;
                         break;
                     case "Asignacion_de_Patentes":
                         asignacionesRolesToolStripMenuItem.Enabled = true;
@@ -305,6 +305,29 @@ namespace Diploma_2022
         {
             Ubicacion.Alta_Ubicacion au = new Ubicacion.Alta_Ubicacion();
             au.Show();
+        }
+
+        private void eliminarUbicacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ubicacion.SEliminarUbicacion eu = new Ubicacion.SEliminarUbicacion();
+            eu.Show();
+        }
+
+        private void generarNuevoNegocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.CrearNegocio cn = new Negocio.CrearNegocio();
+            cn.Show();
+        }
+
+        private void calcularDVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Digitos_Verificadores.DigitosVerificadores DV = new Digitos_Verificadores.DigitosVerificadores();
+            DV.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

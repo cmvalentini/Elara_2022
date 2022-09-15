@@ -37,8 +37,7 @@ namespace DAL.BackRestore
         {
             try
             {
-                string stringcon = "DESKTOP-VF25GBN\\SERVERCHARLY;Initial Catalog=master;Integrated Security=True";
-
+                string stringcon = @"Data Source=DESKTOP-VF25GBN\SERVERCHARLY;Initial Catalog = master; Integrated Security = True";
 
                 SqlConnection con1 = new SqlConnection(stringcon);
                 con1.Open();

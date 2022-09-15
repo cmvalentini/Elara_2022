@@ -36,6 +36,9 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,6 +75,12 @@
     </Compile>
     <Compile Include="Bitacora\Consultar_Bitacora.Designer.cs">
       <DependentUpon>Consultar_Bitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Digitos Verificadores\DigitosVerificadores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Digitos Verificadores\DigitosVerificadores.Designer.cs">
+      <DependentUpon>DigitosVerificadores.cs</DependentUpon>
     </Compile>
     <Compile Include="EliminarUsuario.cs">
       <SubType>Form</SubType>
@@ -138,6 +147,12 @@
     </Compile>
     <Compile Include="MUsuario.Designer.cs">
       <DependentUpon>MUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\CrearNegocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\CrearNegocio.Designer.cs">
+      <DependentUpon>CrearNegocio.cs</DependentUpon>
     </Compile>
     <Compile Include="Permisos\AFamilia.cs">
       <SubType>Form</SubType>
@@ -213,6 +228,12 @@
     <Compile Include="Ubicacion\ModificarUbicacion.Designer.cs">
       <DependentUpon>ModificarUbicacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ubicacion\SEliminarUbicacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ubicacion\SEliminarUbicacion.Designer.cs">
+      <DependentUpon>SEliminarUbicacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ubicacion\SModificarUbicacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bitacora\Consultar_Bitacora.resx">
       <DependentUpon>Consultar_Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Digitos Verificadores\DigitosVerificadores.resx">
+      <DependentUpon>DigitosVerificadores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EliminarUsuario.resx">
       <DependentUpon>EliminarUsuario.cs</DependentUpon>
@@ -263,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MUsuario.resx">
       <DependentUpon>MUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\CrearNegocio.resx">
+      <DependentUpon>CrearNegocio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Permisos\AFamilia.resx">
       <DependentUpon>AFamilia.cs</DependentUpon>
@@ -309,6 +336,9 @@
     <EmbeddedResource Include="Ubicacion\ModificarUbicacion.resx">
       <DependentUpon>ModificarUbicacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ubicacion\SEliminarUbicacion.resx">
+      <DependentUpon>SEliminarUbicacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ubicacion\SModificarUbicacion.resx">
       <DependentUpon>SModificarUbicacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,7 +372,9 @@
       <Name>ServiceLayer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Cliente\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

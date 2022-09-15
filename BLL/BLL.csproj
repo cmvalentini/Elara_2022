@@ -42,14 +42,17 @@
   <ItemGroup>
     <Compile Include="BackRestore\BackRestoreBLL.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Cliente\ClienteBLL.cs" />
     <Compile Include="Idioma\IdiomaBLL.cs" />
     <Compile Include="Medio\MedioBLL.cs" />
     <Compile Include="Medio\UbicacionBLL.cs" />
+    <Compile Include="Pedido\PedidoBLL.cs" />
     <Compile Include="Permisos\DirectorioperfilBLL.cs" />
     <Compile Include="Permisos\ManejadorPerfilUsuarios.cs" />
     <Compile Include="Permisos\OperacionBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\BitacoraBLL.cs" />
+    <Compile Include="Seguridad\DigitosVerificadores.cs" />
     <Compile Include="Seguridad\EncriptacionBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
   </ItemGroup>

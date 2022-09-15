@@ -135,6 +135,7 @@
             this.txtDocument.Name = "txtDocument";
             this.txtDocument.Size = new System.Drawing.Size(234, 20);
             this.txtDocument.TabIndex = 11;
+            this.txtDocument.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDocument_KeyPress);
             // 
             // txtMail
             // 

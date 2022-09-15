@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic;
+
 
 namespace DAL.Seguridad
 {
@@ -14,331 +17,70 @@ namespace DAL.Seguridad
         EncriptacionDAL cryp = new EncriptacionDAL();
         Conexion con = new Conexion();
         DataTable dtusuarios = new DataTable();
-        DataTable dtusuariooperacion = new DataTable();
-        DataTable dtbitacora = new DataTable();
-        DataTable dtperfil = new DataTable();
-        DataTable dtoperacion = new DataTable();
 
-        long totdvhusuario = 0;
-        long totdvhusuariooperacion = 0;
-        long totdvhBitacora = 0;
-        long totdvhPerfilUsuario = 0;
-        long totdvhOPERACION = 0;
+        BE.Seguridad.DigitosVerificadores DV = new BE.Seguridad.DigitosVerificadores();
+      
 
-        public string VerificarDV()
-        {
-
-            try
-            {
-                DataTable dt = new DataTable();
-                string dvusuario = "select dvh from usuario";
-                string dvvusuario = "select dvv from dvv where tabla like 'Usuario'";
-                string dvusuariooperacion = "select dvh from usuariooperacion";
-                string dvvusuariooperacion = "select dvv from dvv where tabla like 'usuariooperacion'";
-                string dvbitacora = "select dvh from Bitacora";
-                string dvvbitacora = "select dvv from dvv where tabla like 'bitacora'"; ;
-                string dvperfil = "select dvh from PerfilUsuario";
-                string dvvperfil = "select dvv from dvv where tabla like 'PerfilUsuario'";
-                string dvoperacion = "select dvh from Operacion"; ;
-                string dvvoperacion = "select dvv from dvv where tabla like 'Operacion'";
-
-                dtusuarios = con.Ejecutarreader(dvusuario);
-                totdvhusuario = sumardvh(dtusuarios);
-                string totdvvusuariocryp = con.VerificarDatoTabla(dvvusuario);
-                long totdvvusuario = Convert.ToInt32(cryp.Desencriptar(totdvvusuariocryp));
-
-                dtusuariooperacion = con.Ejecutarreader(dvusuariooperacion);
-                totdvhusuariooperacion = sumardvh(dtusuariooperacion);
-                string totdvvusuariooperacioncryp = con.VerificarDatoTabla(dvvusuariooperacion);
-                long totdvvusuariooperacion = Convert.ToInt32(cryp.Desencriptar(totdvvusuariooperacioncryp));
-
-                dtbitacora = con.Ejecutarreader(dvbitacora);
-                totdvhBitacora = sumardvh(dtbitacora);
-                string totdvvbitacoracryp = con.VerificarDatoTabla(dvvbitacora);
-                long totdvvbitacora = Convert.ToInt32(cryp.Desencriptar(totdvvbitacoracryp));
-
-                dtperfil = con.Ejecutarreader(dvperfil);
-                totdvhPerfilUsuario = sumardvh(dtperfil);
-                string totdvvperfilusuariocryp = con.VerificarDatoTabla(dvvperfil);
-                long totdvvperfilusuario = Convert.ToInt32(cryp.Desencriptar(totdvvperfilusuariocryp));
-
-                dtoperacion = con.Ejecutarreader(dvoperacion);
-                totdvhOPERACION = sumardvh(dtoperacion);
-                string totdvvoperacioncryp = con.VerificarDatoTabla(dvvoperacion);
-                long totdvvoperacion = Convert.ToInt32(cryp.Desencriptar(totdvvoperacioncryp));
-
-                if (totdvhusuario == totdvvusuario)
-                {
-
-                }
-                else
-                {
-                    return "Falló Calculo de DV en los registros de USUARIO,la base esta corrupta, contacte al administrador";
-                }
-                if (totdvhusuariooperacion == totdvvusuariooperacion)
-                {
-
-                }
-                else
-                {
-                    return "Falló Calculo de DV en los registros de PATENTE-USUARIO,la base esta corrupta, contacte al administrador";
-                }
-                if (totdvhBitacora == totdvvbitacora)
-                {
-
-                }
-                else
-                {
-                    return "Falló Calculo de DV en los registros de BITACORA,la base esta corrupta, contacte al administrador";
-                }
-                if (totdvhPerfilUsuario == totdvvperfilusuario)
-                {
-
-                }
-                else
-                {
-                    return "Falló Calculo de DV en los registros de ROLES DE USUARIO,la base esta corrupta, contacte al administrador";
-                }
-                if (totdvhOPERACION == totdvvoperacion)
-                {
-
-                }
-                else
-                {
-                    return "Falló Calculo de DV en los registros de Patentes,la base esta corrupta, contacte al administrador";
-                }
+        string RegistrosACalcular = "select Usuarioid,Usuario,Clave,dni,email,habilitado,dvh from usuario";
 
 
-                totdvhusuario = 0;
-                totdvhusuariooperacion = 0;
-                totdvhBitacora = 0;
-                totdvhPerfilUsuario = 0;
-                totdvhOPERACION = 0;
-                dtusuarios.Clear();
-                dtusuariooperacion.Clear();
-                dtbitacora.Clear();
-                dtperfil.Clear();
-                dtoperacion.Clear();
-
-
-                return "Dígitos calculados correctamente!";
-
-            }
-
-            catch (Exception ex)
-            {
-                return "Hubo con problema con los Dígitos Verificadores : " + ex.Message;
-
-
-            }
-
-
-        }
-
-        private long sumardvh(DataTable dt1)
-        {
-
-            long tot = 0;
-
-            try
-            {
-                foreach (DataRow item in dt1.Rows)
-                {
-
-                    string desencriptardvh = cryp.Desencriptar(item[0].ToString());
-                    tot += Convert.ToInt64(desencriptardvh);
-
-                }
-
-                return tot;
-            }
-            catch (Exception)
-            {
-                return -2;
-            }
-        }
-
-
-
-
-        public string RecalcularDVH()
+        public BE.Seguridad.DigitosVerificadores VerificarDV()
         {
             try
             {
-                Thread tdv = new Thread(new ThreadStart(RecalcularDVHprocess));
-                tdv.Start();
 
+                con.Conectar();
+                dtusuarios = con.Ejecutarreader(RegistrosACalcular);
 
-                return "Recalculando Dìgitos, siga utilizando el sistema normalmente, en caso de error, sera notificado";
+                foreach (DataRow item in dtusuarios.Rows)
+                {
+                    string usuarioid = item[0].ToString();
+                    string usuario = item[1].ToString();
+                    string Clave = item[2].ToString();
+                    string dni = item[3].ToString();
+                    string email = item[4].ToString();
+                    string habilitado = item[5].ToString();
+                    string dvh = cryp.Desencriptar(item[6].ToString());
 
+                    long Lusuarioid = calculartabladvh(usuarioid);
+                    long Lusuario = calculartabladvh(usuario);
+                    long LClave = calculartabladvh(Clave);
+                    long Ldni = calculartabladvh(dni);
+                    long Lemail = calculartabladvh(email);
+                    long Lhabilitado = calculartabladvh(habilitado);
+
+                    long suma = Lusuarioid + Lusuario + LClave + Ldni + Lemail + Lhabilitado;
+
+                     if (suma == Convert.ToInt32(dvh))
+                    {
+                       
+                    }
+                    else
+                    {
+                        DV.result = "La consistencia de los datos ha sido alterada en el usuario"+ usuario +" ";
+                        return DV;
+                    }
+                    DV.result = "Comprobación de Digitos Verificadores OK";
+
+                }
+                return DV;
 
             }
-
             catch (Exception ex)
             {
 
-                return ex.Message;
+                DV.result = ex.Message;
+
+                return DV;
             }
-
-        }
-
-        private void RecalcularDVHprocess()
-        {
-
-            con.Conectar();
-            //usuarios
-            string sql = "select Usuarioid,Usuario,Clave from usuario";
-            dtusuarios = con.Ejecutarreader(sql);
-
-            //string sqlusuop = " select UsuarioID,OperacionID,Habilitado from usuariooperacion";
-            //dtusuariooperacion = con.Ejecutarreader(sqlusuop);
-
-            //string sqlbitacora = " select BitacoraID,UsuarioID,FechayHora from bitacora";
-            //dtbitacora = con.Ejecutarreader(sqlbitacora);
-
-            //string sqlperfil = "  select PerfilUsuarioID,NombrePerfil,DescPerfil from PerfilUsuario";
-            //dtperfil = con.Ejecutarreader(sqlperfil);
-
-
-            string sqloperacion = "  select OperacionID,Descripcion,PatenteEscencial from Operacion";
-            dtoperacion = con.Ejecutarreader(sqloperacion);
-
-            //ACTUALIZO DVH
-
-           foreach (DataRow item in dtusuarios.Rows)
-            {
-                string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                int flag = recalculartabladvh(concat);
-                totdvhusuario += flag;
-                string crypflag = cryp.Encriptar(flag.ToString());
-
-                string sql2 = "update usuario set dvh = '" + crypflag + "' where usuarioid= " + item[0].ToString() + " ;";
-
-                con.Ejecutar(sql2);
-            }
-
-            #region Tablas que no se usan mas
-            /* int a = 0;
-              foreach (DataRow item in dtusuariooperacion.Rows)
-              {
-                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                  int flag = recalculartabladvh(concat);
-                  totdvhusuariooperacion += flag;
-                  string crypflag = cryp.Encriptar(flag.ToString());
-
-                  int tot = 0;
-                  Console.WriteLine(a);
-                  string sqluo = "update usuariooperacion set dvh = '" + crypflag + "' where usuarioid = " + item[0].ToString() + " " +
-                      " and OperacionID = " + item[1].ToString() + ";";
-
-                  con.Ejecutar(sqluo);
-                  tot = a++;
-              }
-
-              foreach (DataRow item in dtbitacora.Rows)
-              {
-                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                  int flag = recalculartabladvh(concat);
-                  totdvhBitacora += flag;
-                  string crypflag = cryp.Encriptar(flag.ToString());
-
-                  string sqlbit = "update bitacora set dvh = '" + crypflag + "' where BitacoraID = " + item[0].ToString() + " " +
-                      " and UsuarioID = " + item[1].ToString() + ";";
-
-                  con.Ejecutar(sqlbit);
-              }
-
-              foreach (DataRow item in dtperfil.Rows)
-              {
-                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                  int flag = recalculartabladvh(concat);
-                  totdvhPerfilUsuario += flag;
-                  string crypflag = cryp.Encriptar(flag.ToString());
-
-                  string sqlperfil1 = "update PerfilUsuario set dvh = '" + crypflag + "' where PerfilUsuarioID = " + item[0].ToString() + " " +
-                      " and NombrePerfil like '" + item[1].ToString() + "';";
-
-                  con.Ejecutar(sqlperfil1);
-              }
-
-              foreach (DataRow item in dtoperacion.Rows)
-              {
-                  string concat = item[0].ToString() + item[1].ToString() + item[2].ToString();
-
-                  int flag = recalculartabladvh(concat);
-                  totdvhOPERACION += flag;
-                  string crypflag = cryp.Encriptar(flag.ToString());
-
-
-                  string sqlop1 = "update operacion set dvh = '" + crypflag + "' where OperacionID = " + item[0].ToString() + " ;";
-
-                  con.Ejecutar(sqlop1);
-              }*/
-            /*string crypusuop = cryp.Encriptar(totdvhusuariooperacion.ToString());
-          string crypbita = cryp.Encriptar(totdvhBitacora.ToString());
-          string crypperfilusu = cryp.Encriptar(totdvhPerfilUsuario.ToString());
-          string crypopo = cryp.Encriptar(totdvhOPERACION.ToString());*/
-            /*   String sqlusuarioop = " update dvv set dvv = '" + crypusuop + "' " +
-             " where tabla like 'usuariooperacion'";
-              dtusuarios.Rows.Clear();
-              dtusuarios = con.Ejecutarreader(sqlusuarioop);
-
-              String sqlbita = " update dvv set dvv = '" + crypbita + "' " +
-            " where tabla like 'bitacora'";
-              dtusuarios.Rows.Clear();
-              dtusuarios = con.Ejecutarreader(sqlbita);
-
-              String sqlperfil2 = " update dvv set dvv = '" + crypperfilusu + "' " +
-              " where tabla like 'PerfilUsuario'";
-              dtusuarios.Rows.Clear();
-              dtusuarios = con.Ejecutarreader(sqlperfil2);
-
-              String sqloperaciones = " update dvv set dvv = '" + crypopo + "' " +
-          " where tabla like 'Operacion'";
-              dtusuarios.Rows.Clear();
-              dtusuarios = con.Ejecutarreader(sqloperaciones);
-
-      */
-         /*   totdvhusuariooperacion = 0;
-            totdvhBitacora = 0;
-            totdvhPerfilUsuario = 0;
-            totdvhOPERACION = 0;
-            dtusuariooperacion.Clear();
-            dtbitacora.Clear();
-            dtperfil.Clear();
-            dtoperacion.Clear();*/
-            #endregion
-
-
-            // actualizo DVV
-            string crypusu = cryp.Encriptar(totdvhusuario.ToString());
-            
-
-            String sql3 = " update dvv set dvv = '" + crypusu + "' " +
-                " where tabla like 'Usuario'";
-            dtusuarios.Rows.Clear();
-            dtusuarios = con.Ejecutarreader(sql3);
-
-         
-
-            totdvhusuario = 0;
-            dtusuarios.Clear();
-           con.Desconectar();
 
 
         }
 
+        private long calculartabladvh(string Texto) {
 
-        private int recalculartabladvh(string cadenaRegistro)
-        {
-
-
-            int digitoHorizontal = 0;
-            byte[] ASCIIValues = Encoding.ASCII.GetBytes(cadenaRegistro);
+            long digitoHorizontal = 0;
+            byte[] ASCIIValues = Encoding.ASCII.GetBytes(Texto);
 
             int posicion = 1;
             foreach (byte b in ASCIIValues)
@@ -347,8 +89,65 @@ namespace DAL.Seguridad
                 posicion += 1;
             }
             return digitoHorizontal;
+            
 
         }
+
+
+        public BE.Seguridad.DigitosVerificadores RecalcularDVH()
+        {
+            BE.Seguridad.DigitosVerificadores DV = new BE.Seguridad.DigitosVerificadores();
+            try
+            {
+
+                con.Conectar();
+                dtusuarios = con.Ejecutarreader(RegistrosACalcular);
+                long totdvhusuario = 0;
+
+                foreach (DataRow item in dtusuarios.Rows)
+                {
+                    string usuarioid = item[0].ToString();
+                    string usuario = item[1].ToString();
+                    string Clave = item[2].ToString();
+                    string dni = item[3].ToString();
+                    string email = item[4].ToString();
+                    string habilitado = item[5].ToString();
+                    string dvh = cryp.Desencriptar(item[6].ToString());
+
+                    long Lusuarioid = calculartabladvh(usuarioid);
+                    long Lusuario = calculartabladvh(usuario);
+                    long LClave = calculartabladvh(Clave);
+                    long Ldni = calculartabladvh(dni);
+                    long Lemail = calculartabladvh(email);
+                    long Lhabilitado = calculartabladvh(habilitado);
+
+                    long suma = Lusuarioid + Lusuario + LClave + Ldni + Lemail + Lhabilitado;
+                    totdvhusuario = +suma;
+                    string sumaencriptada = cryp.Encriptar(suma.ToString());
+                    string sql = "update usuario set dvh = '" + sumaencriptada +
+                        "'  where usuarioid = " + usuarioid + " ";
+
+                    con.Ejecutar(sql);
+                }
+                string dvvtotal = cryp.Encriptar(totdvhusuario.ToString());
+                string sqldvv = "update dvv set dvv = " + dvvtotal +
+                        "where tabla = 'Usuario' ";
+
+                con.Desconectar();
+                DV.result = "Dígitos recalculados correctamente";
+                return DV;
+            }
+            catch (Exception ex)
+            {
+
+                DV.result = ex.Message;
+                return DV;
+
+            }
+
+        }
+
+    
 
     }
 }

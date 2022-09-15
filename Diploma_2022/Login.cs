@@ -13,10 +13,11 @@ namespace Diploma_2022
     public partial class Login : Form
     {
         BLL.Seguridad.EncriptacionBLL cryp = new BLL.Seguridad.EncriptacionBLL();
-        
+        BE.Seguridad.DigitosVerificadores dv = new BE.Seguridad.DigitosVerificadores();
         BE.Usuario UsuBE = new BE.Usuario();
         BE.Seguridad.BitacoraBE logBE = new BE.Seguridad.BitacoraBE();
         BLL.Seguridad.BitacoraBLL logbll = new BLL.Seguridad.BitacoraBLL();
+        BLL.Seguridad.DigitosVerificadores dvBLL = new BLL.Seguridad.DigitosVerificadores();
 
         public Login()
         {
@@ -246,6 +247,26 @@ namespace Diploma_2022
         private void btn_salir_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            //calculo DV
+            dv = dvBLL.CalcularDigitosVerificadores();
+            MessageBox.Show("Aguarde mientras revisamos los Dígitos Verificadores", "Dígitos Verificadores", MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+
+            if (dv.result == "Dígitos calculados correctamente!")
+            {
+                MessageBox.Show("Digitos verificadores: " + dv.result, "Digitos Verificadores", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Digitos verificadores: " + dv.result, "Digitos Verificadores", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+            }
+
         }
     }
 }

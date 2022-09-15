@@ -42,10 +42,12 @@
   <ItemGroup>
     <Compile Include="BackRestore\BackRestoreDAL.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Cliente\ClienteDAL.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="EmailSevice\EmailServiceDAL.cs" />
     <Compile Include="Medio\MedioDAL.cs" />
     <Compile Include="Medio\UbicacionDAL.cs" />
+    <Compile Include="Pedido\PedidoDAL.cs" />
     <Compile Include="Permisos\ManejadorPerfilUsuarioDAL.cs" />
     <Compile Include="Permisos\OperacionDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +69,7 @@
   <ItemGroup>
     <Content Include="Conection\conectionfile.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

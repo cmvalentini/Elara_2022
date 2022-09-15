@@ -11,18 +11,10 @@ namespace DAL
     public class Conexion
     {
         DataTable dt;
-        // laburo
-        // static string stringconexiontest = "Data Source=ID705881;Initial Catalog=ELARA;Integrated Security=True";
-
-
-        //facu
-        //static string stringconexiontest = @"Data Source=090W10113-70968\SQL14_UAI;Initial Catalog=ELARA;Integrated Security=True";
-
-
         // casa
            static string stringconexiontest = @"Data Source=DESKTOP-VF25GBN\SERVERCHARLY;Initial Catalog = ELARA; Integrated Security = True";
         //static string stringconexiontest = ConfigurationManager.AppSettings["conexionBD"].ToString();
-        //REVISAR ESTO !!
+      
 
         SqlConnection con = new SqlConnection(stringconexiontest);
 

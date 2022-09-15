@@ -73,16 +73,19 @@ namespace DAL.Medio
 
             foreach (DataRow row in dt.Rows)
             {
-                ubicacionbe.NombreUbicacion = row["Nombreubicacion"].ToString();
-                ubicacionbe.medio.MedioNombre = row["medionombre"].ToString();
-                ubicacionbe.Medida = row["Medidas"].ToString();
-                ubicacionbe.Formato = row["Formato"].ToString();
-                ubicacionbe.Formula = row["Formula"].ToString();
-                ubicacionbe.Ubicacionid = Convert.ToInt16(row["Ubicacionid"].ToString());
-                ubicacionbe.medio.Medioid = Convert.ToInt16(row["Medioid"].ToString());
-                ubicacionbe.Precio = Convert.ToDecimal(row["precio"].ToString());
+                BE.Medio.Ubicacion Ubi = new BE.Medio.Ubicacion();
+                BE.Medio.Medio Medio = new BE.Medio.Medio();
+                Ubi.NombreUbicacion = row["Nombreubicacion"].ToString();
+                Medio.MedioNombre = row["medionombre"].ToString();
+                Ubi.medio = Medio;
+                Ubi.Medida = row["Medidas"].ToString();
+                Ubi.Formato = row["Formato"].ToString();
+                Ubi.Formula = row["Formula"].ToString();
+                Ubi.Ubicacionid = Convert.ToInt16(row["Ubicacionid"].ToString());
+                Ubi.medio.Medioid = Convert.ToInt16(row["Medioid"].ToString());
+                Ubi.Precio = Convert.ToDecimal(row["precio"].ToString());
 
-                listaubicacion.Add(ubicacionbe);
+                listaubicacion.Add(Ubi);
             }
 
 
@@ -212,14 +215,12 @@ namespace DAL.Medio
             BE.Medio.Ubicacion ubi = new BE.Medio.Ubicacion();
             foreach (DataRow item in dt.Rows)
             {
-
+               
                 ubi.Ubicacionid = Convert.ToInt16(item[0].ToString());
-                ubi.NombreMedio = item[1].ToString();
                 ubi.NombreUbicacion = item[2].ToString();
                 ubi.Medida = item[3].ToString();
                 ubi.Formato = item[4].ToString();
                 ubi.Formula = item[5].ToString();
-                ubi.Habilitado = Convert.ToInt16(item[6].ToString());
                 ubi.Precio = Convert.ToDecimal(item[7].ToString());
                 // listubi.Add(ubi);
             }
